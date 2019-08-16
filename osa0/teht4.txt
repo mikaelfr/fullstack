@@ -1,0 +1,10 @@
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+palvelin-->selain: HTTP-statuskoodi 302
+
+note over selain:
+Selain uudelleenohjaa palvelimen
+pyyt‰m‰‰n osoitteeseen (t‰ss‰ 
+tapauksessa notes) ja t‰st‰
+sivun lataaminen jatkuu kuten
+normaalistikin.
+end note
