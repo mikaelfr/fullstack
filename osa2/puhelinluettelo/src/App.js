@@ -30,7 +30,9 @@ const App = () => {
       number: newNumber
     }
 
-    if (persons.map(p => p.name).indexOf(newName) > 0)
+    console.log(persons)
+
+    if (persons.map(p => p.name).includes(newName))
     {
       if (window.confirm(`${person.name} is already added to phonebook, replace old number with a new one?`)) {
         const p = persons.filter(p => p.name === newName)[0]
