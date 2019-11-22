@@ -30,8 +30,6 @@ const App = () => {
       number: newNumber
     }
 
-    console.log(persons)
-
     if (persons.map(p => p.name).includes(newName))
     {
       if (window.confirm(`${person.name} is already added to phonebook, replace old number with a new one?`)) {
@@ -64,7 +62,7 @@ const App = () => {
         setTimeout(() => { setSuccessMessage(null) }, 3000)
       })
       .catch(error => {
-        setErrorMessage(`Couldn't add ${person.name}`)
+        setErrorMessage(`${error.response.data.error}`)
         setTimeout(() => { setErrorMessage(null) }, 3000)
       })
     }
