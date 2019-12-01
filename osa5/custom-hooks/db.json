@@ -1,0 +1,79 @@
+{
+  "notes": [
+    {
+      "content": "custom-hooks are awesome!",
+      "id": 1
+    },
+    {
+      "content": "best feature ever <3",
+      "id": 2
+    },
+    {
+      "content": "new hook test",
+      "id": 3
+    },
+    {
+      "content": "let's go",
+      "id": 4
+    },
+    {
+      "content": "trying out",
+      "id": 5
+    },
+    {
+      "content": "trying out",
+      "id": 6
+    },
+    {
+      "content": "yes",
+      "id": 7
+    },
+    {
+      "content": "sdfsd",
+      "id": 8
+    },
+    {
+      "content": "sdfsd",
+      "id": 9
+    },
+    {
+      "content": "fdsfs",
+      "id": 10
+    },
+    {
+      "content": "fdsaf",
+      "id": 11
+    },
+    {
+      "content": "dsada",
+      "id": 12
+    }
+  ],
+  "persons": [
+    {
+      "name": "mluukkai",
+      "number": "040-5483923",
+      "id": 1
+    },
+    {
+      "name": "tgesi",
+      "number": "r43242",
+      "id": 2
+    },
+    {
+      "name": "ddfs",
+      "number": "sdfsd",
+      "id": 3
+    },
+    {
+      "name": "vxzv",
+      "number": "xcvzxcv",
+      "id": 4
+    },
+    {
+      "name": "dasd",
+      "number": "adsada",
+      "id": 5
+    }
+  ]
+}
