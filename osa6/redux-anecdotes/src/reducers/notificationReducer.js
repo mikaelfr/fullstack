@@ -1,4 +1,4 @@
-export const setNotification = notification => {
+export const setNotification = (notification, timeout) => {
     return async dispatch => {
         dispatch({
             type: 'SET_NOTIFICATION',
@@ -10,7 +10,7 @@ export const setNotification = notification => {
                 type: 'SET_NOTIFICATION',
                 notification: ''
             })
-        }, 5000)
+        }, timeout * 1000)
     }
 }
 

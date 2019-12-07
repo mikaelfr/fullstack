@@ -32,8 +32,13 @@
     },
     {
       "content": "Test anecdote",
-      "votes": 0,
+      "votes": 8,
       "id": "jSzhz2K"
+    },
+    {
+      "content": "Another test anecdote",
+      "votes": 2,
+      "id": "9p7eiex"
     }
   ]
 }

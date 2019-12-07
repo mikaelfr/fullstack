@@ -8,7 +8,7 @@ const AnecdoteList = (props) => {
         props.addVote(anecdote)
 
         const content = props.visibleAnecdotes.filter(e => e.id === anecdote.id)[0].content 
-        props.setNotification(`you voted '${content}'`)
+        props.setNotification(`you voted '${content}'`, 5)
     }
 
     return(
