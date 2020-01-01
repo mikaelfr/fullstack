@@ -2,6 +2,7 @@ import React, { useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
 import { useField } from '../hooks'
 import { connect } from 'react-redux'
+import { Form, Button } from 'react-bootstrap'
 
 const Login = React.forwardRef((props, ref) => {
   const username = useField('text')
@@ -12,42 +13,31 @@ const Login = React.forwardRef((props, ref) => {
   })
 
   const loginForm = () => (
-        <>
-            <h2>Log in to application</h2>
-            <form onSubmit={props.handleLogin}>
-              <div>
-                    Username
-                <input {...username.transform()}/>
-              </div>
-              <div>
-                    Password
-                <input {...password.transform()}/>
-              </div>
-              <div>
-                <button type="submit">Login</button>
-              </div>
-            </form>
-        </>
-  )
-
-  const displayUser = () => (
     <div>
-      <p>{props.user.name} logged in<button onClick={props.handleLogout}>Logout</button></p>
+      <h2>Log in to application</h2>
+      <Form onSubmit={props.handleLogin}>
+        <Form.Group>
+          <Form.Label>Username</Form.Label>
+          <Form.Control data-cy="login-username" {...username.transform()}/>
+          <Form.Label>Password</Form.Label>
+          <Form.Control data-cy="login-password" {...password.transform()}/>
+          <Button variant="primary" type="submit" data-cy="login-submit">Login</Button>
+        </Form.Group>
+      </Form>
     </div>
   )
 
   return(
-        <>
-            {props.user === null ? loginForm() : displayUser()}
-        </>
+    <>
+      {props.user === null ? loginForm() : null}
+    </>
   )
 })
 
 Login.displayName = 'Login'
 
 Login.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
-  handleLogout: PropTypes.func.isRequired
+  handleLogin: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

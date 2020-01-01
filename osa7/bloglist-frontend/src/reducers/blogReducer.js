@@ -4,7 +4,7 @@ export const addLike = (blog) => {
   return async dispatch => {
     const updatedBlog = await blogsService.addLike(blog)
     dispatch({
-      type: 'LIKE',
+      type: 'UPDATE_BLOG',
       data: updatedBlog
     })
   }
@@ -30,6 +30,16 @@ export const removeBlog = (id) => {
   }
 }
 
+export const addComment = (id, comment) => {
+  return async dispatch => {
+    const updatedBlog = await blogsService.addComment(id, comment)
+    dispatch({
+      type: 'UPDATE_BLOG',
+      data: updatedBlog
+    })
+  }
+}
+
 export const initBlogs = () => {
   return async dispatch => {
     const blogs = await blogsService.getAll()
@@ -42,7 +52,7 @@ export const initBlogs = () => {
 
 const blogReducer = (state = [], action) => {
   switch (action.type) {
-  case 'LIKE':
+  case 'UPDATE_BLOG':
     return state.map(a => a.id !== action.data.id ? a : action.data).sort((a, b) => b.likes - a.likes)
 
   case 'NEW_BLOG':

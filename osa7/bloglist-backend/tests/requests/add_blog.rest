@@ -1,0 +1,10 @@
+post http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RpIiwiaWQiOiI1ZGRjMjM5NWJhMjdmZDA0Y2NlOTgxMzkiLCJpYXQiOjE1NzQ3MTEwOTh9.3oT0_kgvh9cOl_rCtauro5YREnEYYuEwVtejwzq4fXg
+
+{
+    "title": "My small brick",
+    "author": "My Dude's from the Bronx",
+    "url": "http://google.com",
+    "likes": 73
+}

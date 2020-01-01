@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 import { createBlog } from '../reducers/blogReducer'
 import { setSuccessMessage, setErrorMessage } from '../reducers/notificationReducer'
+import { Form } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 const CreateBlog = (props) => {
   const title = useField('text')
@@ -30,23 +32,17 @@ const CreateBlog = (props) => {
   return(
     <div>
       <h2>Create new</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-                    Title:
-          <input {...title.transform()}/>
-        </div>
-        <div>
-                    Author:
-          <input {...author.transform()}/>
-        </div>
-        <div>
-                    URL:
-          <input {...url.transform()}/>
-        </div>
-        <div>
-          <button type="submit">Create</button>
-        </div>
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Title:</Form.Label>
+          <Form.Control data-cy="add-title" {...title.transform()}/>
+          <Form.Label>Author:</Form.Label>
+          <Form.Control data-cy="add-author" {...author.transform()}/>
+          <Form.Label>URL:</Form.Label>
+          <Form.Control data-cy="add-url" {...url.transform()}/>
+          <Button variant="primary" type="submit" data-cy="add-submit">Create</Button>
+        </Form.Group>
+      </Form>
     </div>
   )
 }
