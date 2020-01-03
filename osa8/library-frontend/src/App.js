@@ -3,7 +3,7 @@ import Authors, { ALL_AUTHORS_QUERY, EDIT_AUTHOR } from './components/Authors'
 import Books, { ALL_BOOKS_QUERY } from './components/Books'
 import NewBook from './components/NewBook'
 import Login from './components/Login'
-import { useMutation, useApolloClient } from 'react-apollo'
+import { useMutation, useApolloClient, useQuery } from 'react-apollo'
 import { gql } from 'apollo-boost'
 import Recommendations from './components/Recommendations'
 
@@ -27,11 +27,21 @@ mutation createBook($title: String!, $published: Int!, $author: String!, $genres
 }
 `
 
+const GET_ME_QUERY = gql`
+{
+  me {
+    username
+    favoriteGenre
+  }
+} 
+`
+
 const App = () => {
   const client = useApolloClient()
 
-  const [page, setPage] = useState('authors')
-  const [token, setToken] = useState(null)
+  const [ page, setPage ] = useState('authors')
+  const [ token, setToken ] = useState(null)
+  const me = useQuery(GET_ME_QUERY)
 
   useEffect(() => {
     const token = localStorage.getItem('fullstack2019-library-user-token')
@@ -98,6 +108,10 @@ const App = () => {
     <button onClick={() => setPage('login')}>login</button>
   )
 
+  const onLogin = () => {
+    me.refetch()
+  }
+
   const logout = () => {
     setToken(null)
     localStorage.clear()
@@ -131,12 +145,14 @@ const App = () => {
 
       <Recommendations
         show={page === 'recommended'}
+        me={me}
       />
 
       <Login
         show={page === 'login'}
         setToken={setToken}
         setPage={setPage}
+        onLogin={onLogin}
       />
       
     </div>

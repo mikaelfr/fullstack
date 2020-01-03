@@ -31,6 +31,7 @@ const Login = (props) => {
       props.setPage('authors')
     }
 
+    props.onLogin()
     setName('')
     setPassword('')
   }

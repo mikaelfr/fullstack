@@ -34,7 +34,7 @@ const Authors = (props) => {
   const [name, setName] = useState(null)
   const [year, setYear] = useState('')
 
-  if (!props.show) {
+  if (!props.show || !authors.data) {
     return null
   }
 
